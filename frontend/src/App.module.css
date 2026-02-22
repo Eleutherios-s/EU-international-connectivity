@@ -1,0 +1,31 @@
+/* src/App.module.css */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.mapPane {
+  position: relative;
+  height: 100%;
+}
+
+.sidePane {
+  height: 100%;
+  border-left: 1px solid rgba(0,0,0,0.12);
+  overflow: hidden;
+  background: #fff;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh 40vh;
+  }
+  .sidePane {
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.12);
+  }
+}

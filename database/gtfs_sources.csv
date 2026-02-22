@@ -1,0 +1,10 @@
+country_code,url
+de,https://data.public-transport.earth/gtfs/de/gtfs.zip
+dk,https://data.public-transport.earth/gtfs/dk/gtfs.zip
+fi,http://traffic.navici.com/tiedostot/gtfs.zip
+lt,https://data.public-transport.earth/gtfs/lt/gtfs.zip
+lu,https://data.public-transport.earth/gtfs/lu/gtfs.zip
+nl,https://data.public-transport.earth/gtfs/nl/gtfs.zip
+no,https://data.public-transport.earth/gtfs/no/gtfs.zip
+se,https://data.public-transport.earth/gtfs/se/gtfs.zip
+ch,https://data.public-transport.earth/gtfs/ch/gtfs.zip

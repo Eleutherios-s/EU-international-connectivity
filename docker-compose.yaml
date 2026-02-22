@@ -1,0 +1,86 @@
+version: '3.8'
+
+name: geographic-information-systems
+services:
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+
+    command: >
+      postgres
+      -c checkpoint_timeout=300min
+      -c max_wal_size=16GB
+      -c min_wal_size=2GB
+      -c wal_compression=on
+      -c log_checkpoints=off
+      -c log_min_messages=warning
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -h 127.0.0.1 -p 5432"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  seed:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      database:
+        condition: service_healthy
+    volumes:
+      - ./database/seed.sh:/seed.sh:ro
+      - ./database/seed-cities.sh:/seed-cities.sh:ro
+      - ./database/seed-gtfs.sh:/seed-gtfs.sh:ro
+      - ./database/seed-city-stops.sh:/seed-city-stops.sh:ro
+      - ./database/seed-filter-train-only.sh:/seed-filter-train-only.sh:ro
+      - ./database/seed-index.sh:/seed-index.sh:ro
+      - ./database/seed-city-od.sh:/seed-city-od.sh:ro
+      - ./database/init/gtfs_constraints.sql:/init/gtfs_constraints.sql:ro
+      - ./database/init/urau_schema.sql:/init/urau_schema.sql:ro
+      - ./database/init/city_stops.sql:/init/city_stops.sql:ro
+      - ./database/init/filter_train_only.sql:/init/filter_train_only.sql:ro
+      - ./database/init/index.sql:/init/index.sql:ro
+      - ./database/init/city-od-min-time.sql:/init/city-od-min-time.sql:ro
+      - ./database/gtfs_sources.csv:/seed/gtfs_sources.csv:ro
+
+    entrypoint: ["/bin/sh", "/seed.sh"]
+
+    logging:
+      driver: "none"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file: .env
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+

@@ -1,0 +1,288 @@
+/* src/Components/Overlay.module.css */
+.root {
+  height: 100%;
+  overflow: auto;
+  padding: 14px 14px 24px 14px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.headerTitle {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.clearBtn {
+  border: 1px solid rgba(0,0,0,0.2);
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.section {
+  margin: 12px 0 18px 0;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+  flex: 1;
+}
+
+.input {
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.badge {
+  display: flex;
+  gap: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.badgeLabel {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.badgeBody {
+  min-width: 0;
+}
+
+.badgeTitle {
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.badgeTitleMuted {
+  font-weight: 800;
+  line-height: 1.2;
+  opacity: 0.5;
+}
+
+.badgeMeta, .badgeMetaMuted {
+  margin-top: 4px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.badgeMetaMuted {
+  opacity: 0.5;
+}
+
+.dateList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 14px;
+  padding: 8px;
+}
+
+.dateBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dateBtnActive {
+  border-width: 2px;
+}
+
+.dateText {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.dateCount {
+  font-weight: 800;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.metaCard {
+  margin-top: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.routesWrap {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.routeCard {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.routeHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.routeName {
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.routeMeta {
+  margin-top: 4px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.tripList {
+  display: grid;
+  gap: 8px;
+}
+
+.tripItem {
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.tripTop {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+}
+
+.tripTimes {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.tripTimesCol {
+  min-width: 0;
+}
+
+.tripTimesLabel {
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.stopLine {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+.timeMono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  opacity: 0.9;
+}
+
+.dot {
+  opacity: 0.4;
+}
+
+.muted {
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+.error {
+  color: #b00020;
+  font-size: 12px;
+}
+
+/* ===== Button Variants ===== */
+
+.primaryBtn {
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.primaryBtn:hover {
+  opacity: 0.85;
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(0,0,0,0.25);
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.secondaryBtn:hover {
+  background: #ececec;
+}
+
+.hideRouteHeader .routeHeader {
+  display: none;
+}
+
+.hideRouteHeader .routeCard {
+  padding-top: 12px; 
+}

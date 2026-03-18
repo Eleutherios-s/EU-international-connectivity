@@ -88,3 +88,44 @@ Schemas:
 - `GET /api/isochrones/cities/{city_id}`
 - `GET /api/connections/{cityA}/{cityB}`
 
+## Run Locally
+
+### 1) Clone
+```bash
+git clone <repo-url>
+cd <repo-folder>
+```
+
+### 2) Configure environment
+Create a `.env` file:
+```env
+POSTGRES_DB=gis
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+GTFS_SOURCES_CSV=/seed/gtfs_sources.csv
+CITIES_LB_URL=https://gisco-services.ec.europa.eu/distribution/v2/urau/gpkg/URAU_LB_2024_3035_CITIES.gpkg
+URAU_RG_URL=https://gisco-services.ec.europa.eu/distribution/v2/urau/gpkg/URAU_RG_100K_2024_3035_CITIES.gpkg
+database_url=postgresql+psycopg2://user:password@database:5432/gis
+```
+
+### 3) Start services
+```
+docker compose up --build
+```
+Typical endpoints:
+Database: localhost:5432
+Backend: http://localhost:8000
+Frontend: http://localhost:5173 (or your configured port)
+
+## Applications
+International rail accessibility analysis
+Cross-border integration and sustainable mobility evaluation
+Tourism accessibility and planning
+Regional transport policy and infrastructure assessment
+
+## Author / Context
+Developed as a GIS & Data Engineering project
+University of Konstanz
+
+## License
+Academic project – educational use.

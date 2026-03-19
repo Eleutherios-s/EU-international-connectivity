@@ -111,11 +111,11 @@ database_url=postgresql+psycopg2://user:password@database:5432/gis
 ### 3) Start services
 ```
 docker compose up --build
-```
-Typical endpoints:
-Database: localhost:5432
-Backend: http://localhost:8000
-Frontend: http://localhost:5173 (or your configured port)
+```  
+Typical endpoints:  
+Database: localhost:5432  
+Backend: http://localhost:8000  
+Frontend: http://localhost:5173 (or your configured port)  
 
 ## Applications
 International rail accessibility analysis
